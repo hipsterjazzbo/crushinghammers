@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "crushinghammers:items/tools/hammer/wooden_hammer"
+  }
+}
