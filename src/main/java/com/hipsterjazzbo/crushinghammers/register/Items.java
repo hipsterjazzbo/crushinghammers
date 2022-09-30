@@ -1,19 +1,19 @@
-package hipsterjazzbo.crushinghammers;
+package com.hipsterjazzbo.crushinghammers.register;
 
+import com.hipsterjazzbo.crushinghammers.CrushingHammers;
+import com.hipsterjazzbo.crushinghammers.HammerBaseItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Tiers;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
 import javax.annotation.Nonnull;
 
-@Mod("crushinghammers")
-public class CrushingHammers {
+public class Items {
     @Nonnull
-    private static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, "crushinghammers");
+    private static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, CrushingHammers.MODID);
 
     public static final RegistryObject<HammerBaseItem> HAMMER_WOOD = ITEMS.register("wooden_hammer", () -> new HammerBaseItem(Tiers.WOOD, 128));
     public static final RegistryObject<HammerBaseItem> HAMMER_STONE = ITEMS.register("stone_hammer", () -> new HammerBaseItem(Tiers.STONE, 256));
@@ -22,7 +22,7 @@ public class CrushingHammers {
     public static final RegistryObject<HammerBaseItem> HAMMER_DIAMOND = ITEMS.register("diamond_hammer", () -> new HammerBaseItem(Tiers.DIAMOND, 4096));
     public static final RegistryObject<HammerBaseItem> HAMMER_NETHERITE = ITEMS.register("netherite_hammer", () -> new HammerBaseItem(Tiers.NETHERITE, 8192));
 
-    public CrushingHammers() {
-        ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
+    public static void register(IEventBus modEventBus) {
+        ITEMS.register(modEventBus);
     }
 }
