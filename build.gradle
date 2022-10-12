@@ -86,7 +86,6 @@ repositories {
 }
 
 dependencies {
-    implementation 'org.jetbrains:annotations:22.0.0'
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
 
     if (System.getProperty('idea.sync.active') != 'true') {

@@ -6,21 +6,27 @@ import com.hipsterjazzbo.crushinghammers.register.Tags;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.Container;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
+import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.GameData;
 import org.jetbrains.annotations.NotNull;
 
-public record CrushingRecipe(ResourceLocation id) implements Recipe<Container> {
+public record CrushingRecipe(ResourceLocation id, ItemStack result) implements Recipe<Container> {
     public boolean matches(Level world, BlockPos pos) {
-        return world.getBlockState(pos).is(Tags.MINEABLE_WITH_HAMMER);
+        boolean isMineable = world.getBlockState(pos).is(Tags.MINEABLE_WITH_HAMMER);
+
+        return isMineable;
     }
 
     @Override
     public boolean matches(@NotNull Container inv, @NotNull Level world) {
-        return false;
+        return inv.getItem(0).is(ForgeRegistries.ITEMS.getValue(this.getId()));
     }
 
     @Override
@@ -35,7 +41,7 @@ public record CrushingRecipe(ResourceLocation id) implements Recipe<Container> {
 
     @Override
     public @NotNull ItemStack getResultItem() {
-        return ItemStack.EMPTY;
+        return this.result;
     }
 
     @Override
@@ -51,5 +57,10 @@ public record CrushingRecipe(ResourceLocation id) implements Recipe<Container> {
     @Override
     public @NotNull RecipeType<?> getType() {
         return RecipeTypes.CRUSHING_RECIPE_TYPE.get();
+    }
+
+    @Override
+    public boolean isSpecial() {
+        return true;
     }
 }

@@ -14,13 +14,13 @@ public class CHItemTagsProvider extends ItemTagsProvider {
 
     @Override
     protected void addTags() {
-        this.tag(Tags.HAMMER)
-            .add(Items.HAMMER_WOOD.get())
-            .add(Items.HAMMER_STONE.get())
-            .add(Items.HAMMER_IRON.get())
-            .add(Items.HAMMER_GOLD.get())
-            .add(Items.HAMMER_DIAMOND.get())
-            .add(Items.HAMMER_NETHERITE.get());
+        this.tag(Tags.HAMMER).add(
+                Items.HAMMER_WOOD.get(),
+                Items.HAMMER_STONE.get(),
+                Items.HAMMER_IRON.get(),
+                Items.HAMMER_GOLD.get(),
+                Items.HAMMER_DIAMOND.get(),
+                Items.HAMMER_NETHERITE.get());
     }
 
     @Override

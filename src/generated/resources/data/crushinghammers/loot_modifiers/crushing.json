@@ -1,0 +1,11 @@
+{
+  "conditions": [
+    {
+      "condition": "minecraft:match_tool",
+      "predicate": {
+        "tag": "crushinghammers:hammer"
+      }
+    }
+  ],
+  "type": "crushinghammers:crushing"
+}

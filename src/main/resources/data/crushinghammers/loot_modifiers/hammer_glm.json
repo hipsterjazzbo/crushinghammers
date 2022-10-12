@@ -1,11 +1,16 @@
 {
-  "type": "crushinghammers:hammer_loot_modifier",
+  "type": "crushinghammers:crushing",
   "conditions": [
     {
       "condition": "minecraft:match_tool",
       "predicate": {
         "items": [
-          "crushinghammers:iron_hammer"
+          "crushinghammers:wooden_hammer",
+          "crushinghammers:stone_hammer",
+          "crushinghammers:iron_hammer",
+          "crushinghammers:golden_hammer",
+          "crushinghammers:diamond_hammer",
+          "crushinghammers:netherite_hammer"
         ]
       }
     }
